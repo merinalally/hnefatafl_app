@@ -1,0 +1,5 @@
+
+enum GameTeam {
+  attacker,
+  defender,
+}

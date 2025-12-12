@@ -1,0 +1,1 @@
+typedef Pos = ({int x, int y});
