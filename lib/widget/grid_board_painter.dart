@@ -17,7 +17,7 @@ class GridBoardPainter extends CustomPainter {
     final border = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2
-      ..color = Colors.black.withValues(alpha:0.6);
+      ..color = Colors.black.withValues(alpha:0.7);
 
     // Fill alternating cells
     for (int r = 0; r < rows; r++) {

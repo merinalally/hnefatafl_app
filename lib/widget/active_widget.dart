@@ -42,7 +42,7 @@ class AnimatedPositionedWidget extends StatelessWidget {
       child: DraggablePiece(
         isDraggable: isDraggable,
         // (Optional) give the piece a label/icon; purely visual
-        child: PieceVisual(label: label),
+        child: PieceVisual.active(label: label),
         // On drag end, snap to nearest cell
         onDragEnd: onDragEnd,
         /*
@@ -94,7 +94,7 @@ class InactiveWidget extends StatelessWidget {
         onEnd: onAnimationEnd,
         opacity: isCaptured ? 0 : 1.0,
         duration: const Duration(milliseconds: 120),
-        child: PieceVisual(label: label,),
+        child: PieceVisual.inactive(label: label,),
         ),
     );
   }

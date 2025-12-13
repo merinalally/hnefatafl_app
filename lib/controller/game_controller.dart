@@ -46,7 +46,7 @@ class GameController extends Notifier<void>
           return false;
         }
       }
-      //return true;
+      return true;
     }
 
     if(piece.pos.x == toPos.x) {
@@ -60,11 +60,11 @@ class GameController extends Notifier<void>
           return false;
         }
       }
-      //return true;
+      return true;
     }
 
     // Add any additional game rules for moving pieces here if needed
-    return true;
+    return false;
   }
 
   void move(PlayingPiece piece, Pos toPos) {
@@ -98,6 +98,8 @@ class GameController extends Notifier<void>
     final List<Pos> adjacentPositions = directions.map((d) => (x: piece.pos.x + d.x, y: piece.pos.y + d.y)).toList();
     List<PlayingPiece> adjacentEnemies = ennemies.where((p) => adjacentPositions.contains(p.pos)).toList();
 
+    List<Pos> hostilePositions = prohibitedPositions.where((p)=>!pieces.any((piece) => piece.pos == p)).toList();
+
     for (final enemy in adjacentEnemies) {
       Pos direction = (x: enemy.pos.x - piece.pos.x, y: enemy.pos.y - piece.pos.y);
       Pos checkPos = (x: enemy.pos.x + direction.x, y: enemy.pos.y + direction.y);
@@ -124,7 +126,7 @@ class GameController extends Notifier<void>
       } else {
         // Regular piece capture rules
         bool surroundedByAllies = allies.any((p) => p.pos == checkPos);
-        if (surroundedByAllies || prohibitedPositions.contains(checkPos)) {
+        if (surroundedByAllies || hostilePositions.contains(checkPos)) {
           isCaptured = true;
         }
       }

@@ -2,14 +2,31 @@ import 'package:flutter/material.dart';
 
 /// Simple circular piece visual with a label.
 class PieceVisual extends StatelessWidget {
-  const PieceVisual({required this.label});
+
+  const PieceVisual({
+    super.key,
+    required this.label,
+    required this.color,
+  });
+
+  PieceVisual.active({
+    super.key,
+    required this.label,
+  }) : color = Colors.white;
+
+  PieceVisual.inactive({
+    super.key,
+    required this.label,
+  }) : color = Colors.grey;
+
   final String label;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: color,
         shape: BoxShape.circle,
         boxShadow: const [BoxShadow(blurRadius: 6, spreadRadius: 1)],
         border: Border.all(width: 2),
