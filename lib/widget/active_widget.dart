@@ -9,6 +9,7 @@ class AnimatedPositionedWidget extends StatelessWidget {
   const AnimatedPositionedWidget({
     super.key, 
     required this.isDraggable,
+    required this.isSelectedPiece,
     //required this.boardKey,
     required this.pos, 
     required this.cellW, 
@@ -21,6 +22,7 @@ class AnimatedPositionedWidget extends StatelessWidget {
 
   final Pos pos;
   final bool isDraggable;
+  final bool isSelectedPiece;
   final String label;
   final double cellW;
   final double cellH;
@@ -38,27 +40,11 @@ class AnimatedPositionedWidget extends StatelessWidget {
       top: pos.y * cellH,
       width: cellW,
       height: cellH,
-      onEnd: onAnimationEnd,
+      onEnd: isSelectedPiece ? onAnimationEnd : (){},
       child: DraggablePiece(
         isDraggable: isDraggable,
-        // (Optional) give the piece a label/icon; purely visual
-        child: PieceVisual.active(label: label),
-        // On drag end, snap to nearest cell
         onDragEnd: onDragEnd,
-        /*
-        (details) {
-          final boardBox = boardKey.currentContext?.findRenderObject() as RenderBox?;
-          if (boardBox == null) return;
-
-          final boardTopLeft = boardBox.localToGlobal(Offset.zero);
-          final localDrop = details.offset - boardTopLeft;
-
-          // Compute row/col from local offset
-          int newCol = (localDrop.dx / cellW).round();
-          int newRow = (localDrop.dy / cellH).round();
-
-          onPieceDropped.call(newRow, newCol);
-        },*/
+        child: PieceVisual.active(label: label),
       ),
     );
   }
@@ -91,7 +77,7 @@ class InactiveWidget extends StatelessWidget {
       width: cellW,
       height: cellH,
       child: AnimatedOpacity(
-        onEnd: onAnimationEnd,
+        onEnd: isCaptured ? onAnimationEnd : (){},
         opacity: isCaptured ? 0 : 1.0,
         duration: const Duration(milliseconds: 120),
         child: PieceVisual.inactive(label: label,),

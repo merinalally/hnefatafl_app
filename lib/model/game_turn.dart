@@ -8,35 +8,40 @@ enum GameAnimation {
 }
 
 class GameTurn {
+  //final int idTurn;
   final GameTeam activeTeam;
   final PlayingPiece? selectedPiece;
   final List<PlayingPiece> capturedPieces;
 
-  GameTurn({
+  const GameTurn._({
     required this.activeTeam,
     required this.selectedPiece,
     required this.capturedPieces,
+    
   });
 
-  GameTurn.init()
-      : activeTeam = GameTeam.attacker,
-        selectedPiece = null,
-        capturedPieces = [];
+  factory GameTurn.init() => const GameTurn._(
+      activeTeam: GameTeam.attacker,
+      selectedPiece: null,
+      capturedPieces: <PlayingPiece>[],
+    );
 
-  GameTurn.move(PlayingPiece piece, GameTurn previousTurn)
-      : activeTeam = previousTurn.activeTeam,
-        selectedPiece = piece,
-        capturedPieces = previousTurn.capturedPieces;
+  GameTurn move(PlayingPiece piece) => GameTurn._(
+        activeTeam: activeTeam,
+        selectedPiece: piece,
+        capturedPieces: const <PlayingPiece>[],
+      );
   
-  GameTurn.capture(List<PlayingPiece> newCapturedPieces, GameTurn previousTurn)
-      : activeTeam = previousTurn.activeTeam,
-        selectedPiece = previousTurn.selectedPiece,
-        capturedPieces = [...previousTurn.capturedPieces, ...newCapturedPieces];
+  GameTurn capture(List<PlayingPiece> newCapturedPieces) => GameTurn._(
+        activeTeam: activeTeam,
+        selectedPiece: selectedPiece,
+        capturedPieces: newCapturedPieces,
+      );
 
-  GameTurn.nextTurn(GameTurn previousTurn) :
-      activeTeam = previousTurn.activeTeam == GameTeam.attacker ? GameTeam.defender : GameTeam.attacker,
-      selectedPiece = null,
-      capturedPieces = [];
-  
+    GameTurn nextTurn() => GameTurn._(
+        activeTeam: activeTeam == GameTeam.attacker ? GameTeam.defender : GameTeam.attacker,
+        selectedPiece: null,
+        capturedPieces: const <PlayingPiece>[],
+      );
 
 }

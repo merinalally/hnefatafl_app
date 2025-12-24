@@ -12,12 +12,12 @@ class GridBoardPainter extends CustomPainter {
     final cellW = size.width / cols;
     final cellH = size.height / rows;
 
-    final light = Paint()..color = const Color.fromARGB(255, 251, 248, 248); // const Color(0xFFEDEDED);
-    final dark = Paint()..color =  const Color.fromARGB(255, 88, 17, 3);
+    final light = Paint()..color = const Color.fromARGB(155, 251, 248, 248); // const Color(0xFFEDEDED);
+    final dark = Paint()..color =  const Color.fromARGB(155, 88, 17, 3);
     final border = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 2
-      ..color = Colors.black.withValues(alpha:0.7);
+      ..color = Colors.black.withValues(alpha:0.8);
 
     // Fill alternating cells
     for (int r = 0; r < rows; r++) {

@@ -1,8 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tafl_app/model/game_piece.dart';
+import 'package:tafl_app/model/game_state.dart';
+import 'package:tafl_app/model/game_team.dart';
+import 'package:tafl_app/model/game_turn.dart';
 import 'package:tafl_app/model/pos.dart';
 import 'package:tafl_app/model/playing_piece.dart';
-import 'package:tafl_app/provider/game_phase_provider.dart';
+import 'package:tafl_app/provider/game_turn_provider.dart';
 import 'package:tafl_app/provider/game_play_provider.dart';
 import 'package:tafl_app/data/prohibited_positions.dart';
 
@@ -13,10 +16,28 @@ const List<Pos> directions = [
   (x: 0, y: -1),
 ];
 
-class GameController extends Notifier<void>
+class GameController extends Notifier<GameState>
 {
+  List<String> pendingCapturedIds = [];
+
   @override
-  void build() {}
+  GameState build() => GameState.initial();
+
+  void declareWinner(GameTeam team) {
+    state = state.copyWith(winner: team);
+  }
+
+  void clearWinnerEvent() {
+    state = state.copyWith(winner: null);
+  }
+
+  void requestRestart() {
+    state = state.copyWith(restart: true);
+  }
+
+  void clearRestartEvent() {
+    state = state.copyWith(restart: false);
+  }
 
   bool _reviewRuleMove(PlayingPiece piece, Pos toPos) {
 
@@ -151,12 +172,32 @@ class GameController extends Notifier<void>
   }
 
   void capture() {
-    List<PlayingPiece> capturedPieces = _reviewCheckMate();
+    List<PlayingPiece> capturedPieces = ref.read(gameTurnProvider).capturedPieces;
+
+    if (capturedPieces.isNotEmpty)
+    {
+      return;
+    }
+
+    capturedPieces = _reviewCheckMate();
     if (capturedPieces.isEmpty) {
       nextTurn();
+      return;
     }
     else {
+      assert(pendingCapturedIds.isEmpty);
+      pendingCapturedIds = capturedPieces.map((piece)=>piece.id).toList();
       ref.read(gameTurnProvider.notifier).capture(capturedPieces);
+    }
+    
+  }
+
+  void onCapture(String id)
+  {
+    pendingCapturedIds.removeWhere((i)=> (i== id));
+    if (pendingCapturedIds.isEmpty){
+      nextTurn();
+      return;
     }
   }
 
@@ -164,11 +205,12 @@ class GameController extends Notifier<void>
     ref.read(gamePlayProvider.notifier).removePieces(
       ref.read(gameTurnProvider).capturedPieces
     );
-
     if (endGame()) {
+      GameTurn currentTurn = ref.read(gameTurnProvider);
+      GameTeam winner = currentTurn.activeTeam;
+      state = state.copyWith(winner: winner); 
       return;
     }
-
     ref.read(gameTurnProvider.notifier).nextTurn();
   }
 

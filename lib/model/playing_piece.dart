@@ -1,9 +1,6 @@
-import 'package:uuid/uuid.dart';
+import 'package:tafl_app/core/uuid.dart';
 import 'package:tafl_app/model/game_piece.dart';
 import 'package:tafl_app/model/pos.dart';
-
-final uuid = Uuid();
-
 
 class PlayingPiece {
 
