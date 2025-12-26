@@ -18,7 +18,7 @@ class TitleWidget extends StatelessWidget
       style: GoogleFonts.newRocker(
         fontSize: 45,
         fontWeight: FontWeight.w300,
-        color: const Color.fromARGB(200, 196, 196, 196),
+        color: const Color.fromARGB(230, 196, 196, 196),
       ),
     );
   }
