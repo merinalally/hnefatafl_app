@@ -61,66 +61,80 @@ class _GameRoot extends ConsumerWidget {
   }
 
   void _showWinDialog(BuildContext context, WidgetRef ref, GameTeam team) async {
+
+    Widget content = Container(
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(255, 39, 5, 2),
+        borderRadius: BorderRadius.circular(5),  
+        border: Border.all(color: Colors.white, width: 1),
+      ),
+      padding: const EdgeInsets.all(20),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          ListTile(
+            leading: Image.asset( 
+              (team == GameTeam.attacker) ? 'assets/images/soldier.png' : 'assets/images/king.png',
+              height: 100,
+              //color: Colors.white60,
+            ),
+            title: Text(
+              (team == GameTeam.attacker) ? "Capture du roi par les Assaillants" : "Fuite du roi par les Défenseurs",
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                color: kWhite,
+              ),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Divider(
+          color: Colors.white,
+          thickness: 1,
+        ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              ref.read(gameControllerProvider.notifier).requestRestart();
+            },
+            child: const Text("Nouvelle partie"),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+              ref.read(screenProvider.notifier).goToMenu();
+            },
+            child: const Text("Retour au menu"),
+          ),
+          const SizedBox(height: 10),
+          Image.asset(  
+            'assets/images/weapons.png',
+            height: 50,
+            color: Colors.white,
+          ),
+        ],
+      ),
+    );
+
+    
     await showDialog(
       context: context,
       barrierDismissible: false,
       builder: (_) => Dialog(  
-        child: Container(
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 39, 5, 2),
-            borderRadius: BorderRadius.circular(5),  
-            border: Border.all(color: Colors.white, width: 1),
-          ),
-          padding: const EdgeInsets.all(20),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              ListTile(
-                leading: Image.asset( 
-                  (team == GameTeam.attacker) ? 'assets/images/soldier.png' : 'assets/images/king.png',
-                  height: 100,
-                  //color: Colors.white60,
-                ),
-                title: Text(
-                  (team == GameTeam.attacker) ? "Capture du roi par les Assaillants" : "Fuite du roi par les Défenseurs",
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    color: kWhite,
-                  ),
-                ),
-              ),
-             const SizedBox(height: 10),
-             Divider(
-              color: Colors.white,
-              thickness: 1,
-            ),
-             const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  ref.read(gameControllerProvider.notifier).requestRestart();
-                },
-                child: const Text("Nouvelle partie"),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  ref.read(screenProvider.notifier).goToMenu();
-                },
-                child: const Text("Retour au menu"),
-              ),
-              const SizedBox(height: 10),
-              Image.asset(  
-                'assets/images/weapons.png',
-                height: 50,
-                color: Colors.white,
-              ),
-            ],
-          ),
-        ),
+        child: content,
       ),
     );
+    
+
+    
+    /*
+    await showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) => WinDialog(),
+    );
+    */
   }
 }

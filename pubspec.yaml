@@ -73,8 +73,15 @@ flutter:
     - assets/images/game.png
     - assets/images/title.png
     - assets/images/button.png
-    - assets/images/button2.png
+    - assets/images/buttonSmall.png
     - assets/images/board.png
+    - assets/images/end.png
+    - assets/images/parchemin.png
+    - assets/images/arrowL.png
+    - assets/images/arrowR.png
+    - assets/images/home.png
+    - assets/images/ed.png
+    - assets/images/quit.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

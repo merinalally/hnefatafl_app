@@ -26,9 +26,9 @@ class ScreenWidget extends StatelessWidget
         ),
         Positioned.fill(
           child: Container(
-            color: Colors.black.withValues(alpha: 0.5),
+            color: Colors.black.withValues(alpha: 0.4),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(2.0), //8
               child: content,
             ),
           ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tafl_app/widget/game_board_view.dart';
 import 'package:tafl_app/widget/game_bottom_navigation_bar.dart';
+import 'package:tafl_app/widget/option_button.dart';
 import 'package:tafl_app/widget/screen_widget.dart';
 
 
@@ -13,10 +14,22 @@ class GameScreen extends StatelessWidget {
 
     return Scaffold(
       body: ScreenWidget.forest(
-        content: Padding(
-          padding: const EdgeInsets.all(1.0),
-          child: Center(
-            child: GameBoardView(),
+        content: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(1.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                OptionButton.small(
+                  text: 'Quit', 
+                  onPressed: (){},
+                ),
+                Expanded(
+                  child: GameBoardView(),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -24,23 +24,25 @@ class MenuScreen extends ConsumerWidget {
         children: [
           TitleWidget(title: "Menu"),
           const SizedBox(height: 5),
-          OptionButton(
-            text: '1 vs 1 Player',
+          OptionButton.normal(
+            text: '2 Players',
             onPressed: ()
             {
               ref.read(screenProvider.notifier).goToGameBoard();
             },
           ),
-          const OptionButton(
+          OptionButton.normal(
             text: 'Rules',
-            onPressed: doNothing,
+            onPressed: (){
+              ref.read(screenProvider.notifier).goToRules();
+            },
           ),
-          const OptionButton(
+          const OptionButton.normal(
             text: 'Learn to Play',
             onPressed: doNothing,
           ),
-          const OptionButton(
-            text: 'About',
+          const OptionButton.normal(
+            text: 'Language',
             onPressed: doNothing,
           ),
         ],

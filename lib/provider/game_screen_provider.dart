@@ -4,6 +4,7 @@ enum GamePage {
   start,
   menu,
   gameBoard,
+  rules,
 } 
 
 class GamePageNotifier extends Notifier<GamePage> {
@@ -17,6 +18,9 @@ class GamePageNotifier extends Notifier<GamePage> {
   }
   void goToStart(){
     state = GamePage.start;
+  }
+  void goToRules(){
+    state = GamePage.rules;
   }
 }
 

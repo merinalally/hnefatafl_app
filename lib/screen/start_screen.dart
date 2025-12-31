@@ -15,20 +15,48 @@ class StartScreen extends ConsumerWidget {
       onTap: () {
         ref.read(screenProvider.notifier).goToMenu();
       },
-      child: Center(  
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            TitleWidget(title: "Hfnatalf",),
-            const SizedBox(height: 8),
-            OptionButton(
-              text: 'Start', 
-              onPressed: (){
-                ref.read(screenProvider.notifier).goToMenu();
-              },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 30.0,
             ),
-          ],
-        ),
+            child: Stack(
+              children: 
+              [
+                Image.asset(
+                'assets/images/title.png',
+                color:Color.fromARGB(205, 228, 152, 82),
+                height: 150,
+                ),
+                Positioned.fill(
+                  child:Center(
+                    child: Image.asset(
+                    'assets/images/title.png',
+                    color:Color.fromARGB(255, 88, 17, 3,),
+                    height: 148,
+                    ),
+                  ),
+                )
+              
+              ],
+            ),
+          ),
+          //TitleWidget(title: "Hfnatalf",),
+          OptionButton.normal(
+            text: 'Start', 
+            onPressed: (){
+              ref.read(screenProvider.notifier).goToMenu();
+            },
+          ),
+          const SizedBox(
+            height: 30,
+          ),
+          const SizedBox(
+           height: 60,
+          ),
+        ],
       ),
     );
     

@@ -165,6 +165,7 @@ class _BoardViewState extends ConsumerState<GameBoardView> {
     );
 
     return Stack(
+      alignment: Alignment.center,
       children: [
         Positioned(
           child: Image.asset(
