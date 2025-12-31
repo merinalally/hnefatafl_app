@@ -214,4 +214,8 @@ class GameController extends Notifier<GameState>
     ref.read(gameTurnProvider.notifier).nextTurn();
   }
 
+  void resetGame() {
+
+  }
+
 }

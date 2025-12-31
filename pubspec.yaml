@@ -69,11 +69,13 @@ flutter:
     - assets/images/king.png
     - assets/images/soldier.png
     - assets/images/screenH.png
+    - assets/images/sceneDrawer.png
     - assets/images/screenV.png
     - assets/images/game.png
     - assets/images/title.png
     - assets/images/button.png
     - assets/images/buttonSmall.png
+    - assets/images/drawer.png
     - assets/images/board.png
     - assets/images/end.png
     - assets/images/parchemin.png

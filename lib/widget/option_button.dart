@@ -4,12 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 class OptionButton extends StatelessWidget {
   final String text;
   final String image;
+  final double height;
   final void Function() onPressed;
 
   const OptionButton({
     super.key,
     required this.text,
     required this.image,
+    required this.height,
     required this.onPressed,
   });
 
@@ -17,13 +19,13 @@ class OptionButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
-  }) : image = 'assets/images/button.png';
+  }) : image = 'assets/images/button.png', height = 40.0;
 
   const OptionButton.small({
     super.key,
     required this.text,
     required this.onPressed,
-  }) : image = 'assets/images/buttonSmall.png';
+  }) : image = 'assets/images/buttonSmall.png', height = 30.0;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class OptionButton extends StatelessWidget {
       children: [
         Image.asset(
           image,
-          height: 40,
+          height: height,
         ),
         TextButton(
           onPressed: onPressed,

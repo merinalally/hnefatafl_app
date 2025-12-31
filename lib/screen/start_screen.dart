@@ -23,6 +23,7 @@ class StartScreen extends ConsumerWidget {
               horizontal: 30.0,
             ),
             child: Stack(
+              alignment: Alignment.center,
               children: 
               [
                 Image.asset(

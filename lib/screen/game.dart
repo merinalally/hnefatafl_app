@@ -11,10 +11,11 @@ import 'package:tafl_app/core/colors.dart';
 
 
 class Game extends ConsumerWidget {
-  const Game({super.key});
+  Game({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+
     return ProviderScope(
      //key: UniqueKey(),
       overrides: [
@@ -51,7 +52,7 @@ class _GameRoot extends ConsumerWidget {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (_) => const Game()),
+            MaterialPageRoute(builder: (_) => Game()),
           );
         });
       }
@@ -127,14 +128,5 @@ class _GameRoot extends ConsumerWidget {
       ),
     );
     
-
-    
-    /*
-    await showDialog(
-      context: context,
-      barrierDismissible: false,
-      builder: (_) => WinDialog(),
-    );
-    */
   }
 }

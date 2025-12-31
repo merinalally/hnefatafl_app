@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tafl_app/provider/game_rules_provider.dart';
 import 'package:tafl_app/model/rule.dart';
+import 'package:tafl_app/provider/game_screen_provider.dart';
+import 'package:tafl_app/widget/option_button.dart';
 import 'package:tafl_app/widget/screen_widget.dart';
 import 'package:tafl_app/widget/menu_bottom_navigation_bar.dart';
 import 'package:tafl_app/widget/rule_widget.dart';
@@ -67,9 +69,20 @@ class RuleScreenState extends ConsumerState<RuleScreen>
 
     return Scaffold(
       body: ScreenWidget.forest(
-        content: Center(
-          child: RuleWidget(
-            rule: rules[index],
+        content: SafeArea(
+          child: Column(
+            children: [
+              OptionButton.small(
+                text: 'Quit', 
+                onPressed: (){
+                  ref.read(screenProvider.notifier).goToMenu();
+                },
+              ),
+              RuleWidget(
+                rule: rules[index],
+                index: '${index + 1}/${rules.length}',
+              ),
+            ],
           ),
         ),
       ),

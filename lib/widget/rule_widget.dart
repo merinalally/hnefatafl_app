@@ -5,19 +5,25 @@ import 'package:google_fonts/google_fonts.dart';
 
 const int kWidth = 1024;
 const int kHeight = 1536;
-const int kMarginTop = 250;
+const int kMarginTop = 300;
 const int kMarginBottom = 400;
 const int kMarginLR = 240;
 
 class RuleWidget extends StatelessWidget {
 
-  const RuleWidget({super.key, required this.rule});
+  const RuleWidget({
+    super.key, 
+    required this.rule,
+    required this.index,
+  });
   
   final Rule rule;
+  final String index;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
+      alignment: Alignment.center,
       children: [
         Image.asset(
           'assets/images/end.png',
@@ -59,10 +65,18 @@ class RuleWidget extends StatelessWidget {
                           thickness: 2,
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 15,
                         ),
                         Text(
                           rule.description,
+                          style: GoogleFonts.newRocker(
+                            fontSize: w * 0.055,
+                            fontWeight: FontWeight.w500,
+                            color: const Color.fromARGB(255, 88, 17, 3),
+                          ),
+                        ),
+                        Text(
+                          index,
                           style: GoogleFonts.newRocker(
                             fontSize: w * 0.055,
                             fontWeight: FontWeight.w500,
