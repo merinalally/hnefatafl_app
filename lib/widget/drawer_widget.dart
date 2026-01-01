@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tafl_app/widget/drawer_list_tile.dart';
+import 'package:tafl_app/widget/option_button.dart';
+import 'package:tafl_app/widget/title_app_widget.dart';
 
 
 class GameDrawer extends StatelessWidget {
@@ -13,31 +15,7 @@ class GameDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    Widget title = Stack(
-      alignment: Alignment.center,
-      children: 
-      [
-        Image.asset(
-        'assets/images/title.png',
-        color:Color.fromARGB(205, 228, 152, 82),
-        height: 150,
-        ),
-        Positioned.fill(
-          child:Center(
-            child: Image.asset(
-            'assets/images/title.png',
-            color:Color.fromARGB(255, 185, 182, 181),
-            height: 148,
-            ),
-          ),
-        )
-      
-      ],
-    );
-
-
     return Drawer(
-      //width: 250,
       child: Stack(
         fit: StackFit.expand,
         children: [
@@ -49,36 +27,31 @@ class GameDrawer extends StatelessWidget {
 
           // Optional overlay (pour lisibilité)
           Container(
-            color: Colors.black.withValues(alpha: 0.6),
+            color: Colors.black.withValues(alpha: 0.4),
           ),
 
           // Content
-          Column(
-            children: [
-              DrawerHeader(
-                //padding: const EdgeInsets.only(left: 0, top: 60),
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 88, 17, 3),//.withValues(alpha: 0.9),
+          SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              spacing: 3,
+              children: [
+                TitleAppWidget(),
+                const SizedBox(
+                  height: 5,
                 ),
-                child: Center(child: title),
-              ),
-              DrawerListTile(
-                text: 'Recommencer la partie',
-                onClick: ()=>Navigator.of(context).pop(),
-              ),
-              DrawerListTile(
-                text: 'Retour au menu',
-                onClick: goToMenu,
-              ),
-              DrawerListTile(
-                text: 'Quitter',
-                onClick: ()=>Navigator.of(context).pop(),
-              ),
-            ],
+                OptionButton.normal(text: 'Recommencer', onPressed: (){}),
+                OptionButton.normal(text: 'Retour au Menu', onPressed: goToMenu),
+                OptionButton.normal(text: 'Quitter', onPressed: (){
+                  Navigator.of(context).pop();
+                }),
+              ],
+            ),
           ),
         ],
       ),
     );
+         
   }
 }
 

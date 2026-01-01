@@ -14,7 +14,7 @@ class DrawerIconWidget extends StatelessWidget
         children: [1,2,3].map(
           (index)=>Image.asset(
             'assets/images/drawer.png',
-            color:Color.fromARGB(255, 75, 16, 2).withValues(alpha: 0.9),
+            color:const Color.fromARGB(255, 251, 248, 248).withValues(alpha: 0.8),
             width: 30,
           ),
         ).toList(),

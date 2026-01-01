@@ -18,14 +18,14 @@ class DrawerListTile extends StatelessWidget
       leading: Image.asset(
         'assets/images/weapons.png',
         height: 25,
-        color: Color.fromARGB(255, 185, 182, 181),
+        color: Color.fromARGB(255, 58, 11, 2),//Color.fromARGB(255, 185, 182, 181),
       ),
       title: Text(
         text,
         style: GoogleFonts.newRocker(
           fontSize: 20,
           fontWeight: FontWeight.w100,
-          color: Color.fromARGB(255, 185, 182, 181),
+          color: Color.fromARGB(255, 58, 11, 2),//Color.fromARGB(255, 185, 182, 181),
         ),
       ),
       onTap: onClick,

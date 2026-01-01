@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tafl_app/provider/game_screen_provider.dart';
 import 'package:tafl_app/widget/option_button.dart';
 import 'package:tafl_app/widget/screen_widget.dart';
+import 'package:tafl_app/widget/title_app_widget.dart';
 import 'package:tafl_app/widget/title_widget.dart';
 
 class StartScreen extends ConsumerWidget {
@@ -22,7 +23,9 @@ class StartScreen extends ConsumerWidget {
             padding: const EdgeInsets.symmetric(
               horizontal: 30.0,
             ),
-            child: Stack(
+            child: TitleAppWidget(),
+            /*
+            Stack(
               alignment: Alignment.center,
               children: 
               [
@@ -42,7 +45,7 @@ class StartScreen extends ConsumerWidget {
                 )
               
               ],
-            ),
+            ),*/
           ),
           //TitleWidget(title: "Hfnatalf",),
           OptionButton.normal(
