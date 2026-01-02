@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tafl_app/widget/option_button.dart';
+import 'package:tafl_app/provider/game_controller_provider.dart';
 import 'package:tafl_app/provider/game_screen_provider.dart';
 import 'package:tafl_app/widget/screen_widget.dart';
 import 'package:tafl_app/widget/title_widget.dart';
@@ -28,6 +29,7 @@ class MenuScreen extends ConsumerWidget {
             text: '2 Players',
             onPressed: ()
             {
+              ref.read(gameControllerProvider.notifier).resetGame();
               ref.read(screenProvider.notifier).goToGameBoard();
             },
           ),

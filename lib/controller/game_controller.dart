@@ -2,7 +2,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tafl_app/model/game_piece.dart';
 import 'package:tafl_app/model/game_state.dart';
 import 'package:tafl_app/model/game_team.dart';
-import 'package:tafl_app/model/game_turn.dart';
 import 'package:tafl_app/model/pos.dart';
 import 'package:tafl_app/model/playing_piece.dart';
 import 'package:tafl_app/provider/game_turn_provider.dart';
@@ -31,6 +30,7 @@ class GameController extends Notifier<GameState>
     state = state.copyWith(winner: null);
   }
 
+  /*
   void requestRestart() {
     state = state.copyWith(restart: true);
   }
@@ -38,6 +38,7 @@ class GameController extends Notifier<GameState>
   void clearRestartEvent() {
     state = state.copyWith(restart: false);
   }
+  */
 
   bool _reviewRuleMove(PlayingPiece piece, Pos toPos) {
 
@@ -205,17 +206,17 @@ class GameController extends Notifier<GameState>
     ref.read(gamePlayProvider.notifier).removePieces(
       ref.read(gameTurnProvider).capturedPieces
     );
-    if (endGame()) {
-      GameTurn currentTurn = ref.read(gameTurnProvider);
-      GameTeam winner = currentTurn.activeTeam;
-      state = state.copyWith(winner: winner); 
+    if (endGame()) {      
+      declareWinner(ref.read(gameTurnProvider).activeTeam);
       return;
     }
     ref.read(gameTurnProvider.notifier).nextTurn();
   }
 
   void resetGame() {
-
+    clearWinnerEvent();
+    ref.invalidate(gamePlayProvider);
+    ref.invalidate(gameTurnProvider);
   }
 
 }

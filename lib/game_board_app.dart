@@ -5,7 +5,6 @@ import 'package:tafl_app/screen/game_screen.dart';
 import 'package:tafl_app/screen/menu_screen.dart';
 import 'package:tafl_app/screen/rule_screen.dart';
 import 'package:tafl_app/screen/start_screen.dart';
-import 'package:tafl_app/screen/game.dart';
 
 Map<GamePage, Widget Function(BuildContext)> pageBuilders = {
   GamePage.start: (context) => StartScreen(),
