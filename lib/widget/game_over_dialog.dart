@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:tafl_app/model/game_team.dart';
+import 'package:tafl_app/widget/option_button.dart';
+import 'package:tafl_app/widget/screen_widget.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:tafl_app/widget/title_app_widget.dart';
 
 class GameOverDialog extends StatelessWidget
 {
@@ -18,59 +22,61 @@ class GameOverDialog extends StatelessWidget
   Widget build(BuildContext context) {
 
     return Dialog(
-      child: Container(
-        decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 39, 5, 2),
-          borderRadius: BorderRadius.circular(5),  
-          border: Border.all(color: Colors.white, width: 1),
-        ),
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ListTile(
-              leading: Image.asset( 
-                (team == GameTeam.attacker) ? 'assets/images/soldier.png' : 'assets/images/king.png',
-                height: 100,
-                //color: Colors.white60,
-              ),
-              title: Text(
-                (team == GameTeam.attacker) ? "Capture du roi par les Assaillants" : "Fuite du roi par les Défenseurs",
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
-              ),
+      child: SizedBox(
+        height: 400,
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Color.fromARGB(255, 88, 17, 3,),
+              width: 3,
             ),
-            const SizedBox(height: 10),
-            Divider(
-            color: Colors.white,
-            thickness: 1,
           ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-                resetGame();
-              },
-              child: const Text("Nouvelle partie"),
+          child: ScreenWidget.forest(
+              content: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                spacing: 3,
+                children: [
+                  TitleAppWidget(),
+                  ListTile(
+                    title: Text(
+                      (team == GameTeam.attacker) ? "Capture du roi" : "Fuite du roi",
+                      textAlign: TextAlign.center,
+                      style : GoogleFonts.newRocker(
+                        fontSize: 30,
+                        fontWeight: FontWeight.w600,
+                        color: const Color.fromARGB(255, 196, 196, 196),
+                      ),
+                    ),
+                    subtitle: Text(
+                      (team == GameTeam.attacker) ? "Victoire des Assaillants" : "Victoire des Défenseurs",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.newRocker(
+                        fontSize: 25,
+                        fontWeight: FontWeight.w500,
+                        color: const Color.fromARGB(255, 196, 196, 196),
+                      ),
+                    ),
+                  ),
+                const SizedBox(height: 10),
+                OptionButton.normal(
+                    text: "Nouvelle partie", 
+                    onPressed: () {
+                      Navigator.pop(context);
+                      resetGame();
+                    },
+                ),
+                OptionButton.normal(
+                  text: "Retour au menu", 
+                  onPressed: () {
+                    Navigator.pop(context);
+                    goToMenu();
+                  },
+                ),
+                const SizedBox(height: 5),
+                ],
+              ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-                goToMenu();
-              },
-              child: const Text("Retour au menu"),
-            ),
-            const SizedBox(height: 10),
-            Image.asset(  
-              'assets/images/weapons.png',
-              height: 50,
-              color: Colors.white,
-            ),
-          ],
         ),
       ),
     );

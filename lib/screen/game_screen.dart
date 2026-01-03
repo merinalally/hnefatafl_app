@@ -26,6 +26,7 @@ class GameScreen extends ConsumerWidget {
           WidgetsBinding.instance.addPostFrameCallback((_) {
             showDialog(
               context: context,
+              barrierDismissible: false,
               builder: (_) => GameOverDialog(
                 team: next,
                 resetGame: ()=>ref.read(gameControllerProvider.notifier).resetGame(),

@@ -7,7 +7,6 @@ import 'package:tafl_app/widget/option_button.dart';
 import 'package:tafl_app/widget/screen_widget.dart';
 import 'package:tafl_app/widget/menu_bottom_navigation_bar.dart';
 import 'package:tafl_app/widget/rule_widget.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'dart:math';
 
 
@@ -53,7 +52,6 @@ class RuleScreenState extends ConsumerState<RuleScreen>
   }
 
   void _previous(){
-    List<Rule> rules = ref.read<List<Rule>>(gameRulesProvider);
     if (index > 0)
       {
         setState(() {
