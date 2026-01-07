@@ -84,6 +84,8 @@ flutter:
     - assets/images/home.png
     - assets/images/ed.png
     - assets/images/quit.png
+    - assets/images/OdinML.png
+    - assets/images/OdinML2.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -206,17 +206,22 @@ class GameController extends Notifier<GameState>
     ref.read(gamePlayProvider.notifier).removePieces(
       ref.read(gameTurnProvider).capturedPieces
     );
+
+    declareWinner(ref.read(gameTurnProvider).activeTeam);
+    /*
     if (endGame()) {      
       declareWinner(ref.read(gameTurnProvider).activeTeam);
       return;
     }
+    */
+
     ref.read(gameTurnProvider.notifier).nextTurn();
   }
 
   void resetGame() {
-    clearWinnerEvent();
     ref.invalidate(gamePlayProvider);
     ref.invalidate(gameTurnProvider);
+    clearWinnerEvent();
   }
 
 }

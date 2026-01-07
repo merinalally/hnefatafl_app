@@ -29,27 +29,28 @@ class OptionButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+
+    return TextButton(
+      onPressed: onPressed,
+      child: Stack(
       alignment: Alignment.center,
       children: [
         Image.asset(
           image,
           height: height,
         ),
-        TextButton(
-          onPressed: onPressed,
-          child: Padding(
-            padding: const EdgeInsets.only(bottom: 3),
-            child: Text(
-              text,
-              style: GoogleFonts.newRocker(
-                fontSize: 15,
-                color: const Color.fromARGB(255, 88, 29, 0),
-              ),
+        Transform.translate(
+          offset: const Offset(0, -2),
+          child: Text(
+            text,
+            style: GoogleFonts.newRocker(
+              fontSize: 15,
+              color: const Color.fromARGB(255, 88, 29, 0),
             ),
           ),
         ),
-      ],
+        ],
+      ),
     );
   }
 }

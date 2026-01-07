@@ -27,10 +27,13 @@ class ScreenWidget extends StatelessWidget
         Positioned.fill(
           child: Container(
             color: Colors.black.withValues(alpha: 0.4),
-            child: Padding(
+            child: content,
+            /*
+            Padding(
               padding: const EdgeInsets.all(2.0), //8
               child: content,
             ),
+            */
           ),
         ),
       ],
