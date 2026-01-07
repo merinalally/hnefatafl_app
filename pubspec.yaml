@@ -63,8 +63,6 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/attackers.png
-    - assets/images/defenders.png
     - assets/images/weapons.png
     - assets/images/king.png
     - assets/images/soldier.png
@@ -81,7 +79,6 @@ flutter:
     - assets/images/parchemin.png
     - assets/images/arrowL.png
     - assets/images/arrowR.png
-    - assets/images/home.png
     - assets/images/ed.png
     - assets/images/quit.png
     - assets/images/OdinML.png

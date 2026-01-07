@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tafl_app/model/pos.dart';
-import 'package:tafl_app/widget/game_piece_visual.dart';
-import 'package:tafl_app/widget/game_draggable_piece.dart';
+import 'package:tafl_app/widget/game/board/piece/game_piece_visual.dart';
+import 'package:tafl_app/widget/game/board/game_draggable_piece.dart';
 
 
 class AnimatedPositionedWidget extends StatelessWidget {
@@ -44,6 +44,8 @@ class AnimatedPositionedWidget extends StatelessWidget {
       child: DraggablePiece(
         isDraggable: isDraggable,
         onDragEnd: onDragEnd,
+        width: cellW,
+        height: cellH,
         child: PieceVisual.active(label: label),
       ),
     );

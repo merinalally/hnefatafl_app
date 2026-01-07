@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tafl_app/widget/option_button.dart';
-import 'package:tafl_app/widget/title_app_widget.dart';
+import 'package:tafl_app/widget/core/title_app_widget.dart';
 
 
 class GameDrawer extends StatelessWidget {

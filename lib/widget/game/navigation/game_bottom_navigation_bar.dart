@@ -4,7 +4,7 @@ import 'package:tafl_app/model/game_team.dart';
 import 'package:tafl_app/model/game_turn.dart';
 import 'package:tafl_app/provider/game_turn_provider.dart';
 import 'package:tafl_app/widget/turn_animated_widget.dart';
-import 'package:tafl_app/widget/turn_icon_widget.dart';
+import 'package:tafl_app/widget/game/navigation/turn_icon_widget.dart';
 import 'package:tafl_app/widget/turn_pass_widget.dart';
 
 

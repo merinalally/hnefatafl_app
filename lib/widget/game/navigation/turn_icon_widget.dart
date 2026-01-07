@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tafl_app/model/game_team.dart';
 
 class TurnIconWidget extends StatelessWidget {
   

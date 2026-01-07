@@ -8,8 +8,8 @@ import 'package:tafl_app/model/playing_piece.dart';
 import 'package:tafl_app/provider/game_controller_provider.dart';
 import 'package:tafl_app/provider/game_play_provider.dart';
 import 'package:tafl_app/provider/game_turn_provider.dart';
-import 'package:tafl_app/widget/grid_board_painter.dart';
-import 'package:tafl_app/widget/active_widget.dart';
+import 'package:tafl_app/widget/game/board/grid_board_painter.dart';
+import 'package:tafl_app/widget/game/board/active_widget.dart';
 import 'package:tafl_app/data/game_cell_stickers.dart';
 
 int kWidth = 875;
