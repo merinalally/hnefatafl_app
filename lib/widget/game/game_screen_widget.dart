@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tafl_app/widget/game/drawer/drawer_icon_widget.dart';
 import 'package:tafl_app/widget/game/board/game_board_view.dart';
-import 'package:tafl_app/widget/screen_widget.dart';
+import 'package:tafl_app/widget/core/screen_widget.dart';
 
 //TODO block when endgame ?
 

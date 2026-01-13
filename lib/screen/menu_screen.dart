@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:tafl_app/widget/option_button.dart';
+import 'package:tafl_app/widget/core/button/option_button.dart';
 import 'package:tafl_app/provider/game_controller_provider.dart';
 import 'package:tafl_app/provider/game_screen_provider.dart';
-import 'package:tafl_app/widget/screen_widget.dart';
+import 'package:tafl_app/widget/core/screen_widget.dart';
 import 'package:tafl_app/widget/core/title/title_widget.dart';
 
 

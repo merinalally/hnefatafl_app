@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tafl_app/widget/game/game_over/game_over_background_container.dart';
 import 'package:tafl_app/widget/game/game_over/odin_widget.dart';
-import 'package:tafl_app/widget/option_button.dart';
-import 'package:tafl_app/widget/core/title_app_widget.dart';
+import 'package:tafl_app/widget/core/button/option_button.dart';
+import 'package:tafl_app/widget/core/title/title_app_widget.dart';
 
 class GameOverOdinOptionsScreen extends StatefulWidget
 {
