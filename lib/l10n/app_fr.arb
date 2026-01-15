@@ -1,5 +1,7 @@
 {
+  "@@locale": "fr",
   "start": "Commencer",
+  "@start": {},
   "menu": "Menu",
   "rules": "Règles",
   "restart": "Recommencer",

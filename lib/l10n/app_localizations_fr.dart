@@ -21,7 +21,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get restart => 'Recommencer';
 
   @override
-  String get backToMenu => 'Retour au Menu';
+  String get backToMenu => 'Retour au menu';
 
   @override
   String get close => 'Fermer';

@@ -3,7 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tafl_app/provider/game_rules_provider.dart';
 import 'package:tafl_app/model/rule.dart';
 import 'package:tafl_app/provider/game_screen_provider.dart';
-import 'package:tafl_app/widget/core/button/option_button.dart';
+import 'package:tafl_app/widget/core/drawer/drawer_icon_widget.dart';
+import 'package:tafl_app/widget/core/drawer/drawer_widget.dart';
 import 'package:tafl_app/widget/core/screen_widget.dart';
 import 'package:tafl_app/widget/rules/menu_bottom_navigation_bar.dart';
 import 'package:tafl_app/widget/rules/rule_widget.dart';
@@ -65,15 +66,19 @@ class RuleScreenState extends ConsumerState<RuleScreen>
     List<Rule> rules = ref.read<List<Rule>>(gameRulesProvider);
 
     return Scaffold(
+      drawer: GameDrawer.settings(
+        goToMenu: ()=>ref.read(screenProvider.notifier).goToMenu(),
+      ),
       body: ScreenWidget.forest(
         content: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              OptionButton.small(
-                text: 'Quit', 
-                onPressed: (){
-                  ref.read(screenProvider.notifier).goToMenu();
-                },
+              Builder(
+                builder: (context) => IconButton(
+                  icon: DrawerIconWidget(),
+                  onPressed: () => Scaffold.of(context).openDrawer(),
+                ),
               ),
               RuleWidget(
                 rule: rules[index],
