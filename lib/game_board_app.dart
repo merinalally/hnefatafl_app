@@ -1,38 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tafl_app/provider/game_screen_provider.dart';
-import 'package:tafl_app/screen/game_screen.dart';
-import 'package:tafl_app/screen/menu_screen.dart';
-import 'package:tafl_app/screen/game_screen.dart';
-import 'package:tafl_app/screen/rule_screen.dart';
-import 'package:tafl_app/screen/start_screen.dart';
-
-Map<GamePage, Widget Function(BuildContext)> pageBuilders = {
-  GamePage.start: (context) => StartScreen(),
-  GamePage.menu: (context) => MenuScreen(),
-  GamePage.gameBoard: (context) => GameScreen(),
-  GamePage.rules : (context) => RuleScreen(),
-};
-
-class GameApp extends StatelessWidget {
-  
-  const GameApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-
-    return MaterialApp(
-      title: 'Game Board',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true, 
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
-      ),
-      home: const GameBoardApp(),
-    );
-  }
-
-}
+import 'package:tafl_app/screen/screen_builder.dart';
 
 
 class GameBoardApp extends ConsumerWidget {

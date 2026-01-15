@@ -38,6 +38,9 @@ dependencies:
   flutter_riverpod: ^3.0.3
   flutter_launcher_icons: ^0.14.4
   google_fonts: ^6.3.3
+  flutter_localizations:
+    sdk: flutter
+  shared_preferences: ^2.5.4
 
 dev_dependencies:
   flutter_test:
@@ -60,6 +63,7 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  generate: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
@@ -83,6 +87,13 @@ flutter:
     - assets/images/quit.png
     - assets/images/OdinML.png
     - assets/images/OdinML2.png
+    - assets/images/cask.png
+    - assets/images/fr_flag.png
+    - assets/images/en_flag.png
+    - assets/images/japanese.png
+    - assets/images/arrow_previous.png
+    - assets/images/arrow_next.png
+    - lib/l10n/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

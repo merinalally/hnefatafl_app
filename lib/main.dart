@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tafl_app/game_board_app.dart';
+import 'package:tafl_app/game_app.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // TODO Define MVP
@@ -22,12 +22,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 //TODO Button Leave Rules, Game
 //TODO Video
 
-//TODO Fix Size First Move
-
 //TODO Implement Rules
 
 //TODO End Game
 
+//TODO Layout Horizontal
+
+//TODO mode nuit
 
 void main() {
   runApp(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tafl_app/l10n/app_localizations.dart';
 import 'package:tafl_app/provider/game_screen_provider.dart';
 import 'package:tafl_app/widget/core/button/option_button.dart';
 import 'package:tafl_app/widget/core/screen_widget.dart';
@@ -25,7 +26,7 @@ class StartScreen extends ConsumerWidget {
             child: TitleAppWidget(),
           ),
           OptionButton.normal(
-            text: 'Start', 
+            text: AppLocalizations.of(context)!.start, 
             onPressed: (){
               ref.read(screenProvider.notifier).goToMenu();
             },

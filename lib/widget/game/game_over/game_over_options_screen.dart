@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tafl_app/l10n/app_localizations.dart';
 import 'package:tafl_app/widget/game/game_over/game_over_background_container.dart';
 import 'package:tafl_app/widget/game/game_over/odin_widget.dart';
 import 'package:tafl_app/widget/core/button/option_button.dart';
@@ -69,11 +70,11 @@ class _GameOverOdinOptionsScreenState extends State<GameOverOdinOptionsScreen>
                     spacing: 3,
                     children: [
                       OptionButton.normal(
-                        text: 'Recommencer', 
+                        text: AppLocalizations.of(context)!.restart, 
                         onPressed: widget.resetGame,
                       ),
                       OptionButton.normal(
-                        text: 'Retour au Menu', 
+                        text: AppLocalizations.of(context)!.backToMenu, 
                         onPressed: widget.goToMenu,
                       ),
                     ],

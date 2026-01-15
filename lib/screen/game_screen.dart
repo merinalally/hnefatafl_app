@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:tafl_app/model/game_team.dart';
 import 'package:tafl_app/provider/game_controller_provider.dart';
 import 'package:tafl_app/provider/game_screen_provider.dart';
-import 'package:tafl_app/widget/game/drawer/drawer_widget.dart';
+import 'package:tafl_app/widget/core/drawer/drawer_widget.dart';
 import 'package:tafl_app/widget/game/navigation/game_bottom_navigation_bar.dart';
 import 'package:tafl_app/widget/game/odin_screen.dart';
 import 'package:tafl_app/widget/game/game_screen_widget.dart';
@@ -21,7 +21,7 @@ class GameScreen extends ConsumerWidget {
     Widget game = GameScreenWidget();
 
     return Scaffold(
-      drawer: GameDrawer(
+      drawer: GameDrawer.game(
         resetGame: ()=>ref.read(gameControllerProvider.notifier).resetGame(),
         goToMenu: ()=>ref.read(screenProvider.notifier).goToMenu(),
       ),

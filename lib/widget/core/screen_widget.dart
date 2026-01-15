@@ -13,6 +13,7 @@ class ScreenWidget extends StatelessWidget
 
   const ScreenWidget.forest({super.key, required this.content}): imageFile = "assets/images/game.png";
   const ScreenWidget.river({super.key, required this.content}): imageFile = "assets/images/screenV.png";
+  const ScreenWidget.village({super.key, required this.content}): imageFile = "assets/images/sceneDrawer.png";
 
   @override
   Widget build(BuildContext context) {

@@ -21,6 +21,12 @@ class OptionButton extends StatelessWidget {
     required this.onPressed,
   }) : image = 'assets/images/button.png', height = 40.0;
 
+  const OptionButton.big({
+    super.key,
+    required this.text,
+    required this.onPressed,
+  }) : image = 'assets/images/button.png', height = 50.0;
+
   const OptionButton.small({
     super.key,
     required this.text,

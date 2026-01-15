@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:tafl_app/l10n/app_localizations.dart';
 import 'package:tafl_app/widget/core/button/option_button.dart';
 import 'package:tafl_app/provider/game_controller_provider.dart';
 import 'package:tafl_app/provider/game_screen_provider.dart';
 import 'package:tafl_app/widget/core/screen_widget.dart';
 import 'package:tafl_app/widget/core/title/title_widget.dart';
 
-
-doNothing(){
-
-}
 
 class MenuScreen extends ConsumerWidget {
   const MenuScreen({super.key});
@@ -21,12 +18,11 @@ class MenuScreen extends ConsumerWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        spacing: 3,
         children: [
-          TitleWidget(title: "Menu"),
+          TitleWidget(title: AppLocalizations.of(context)!.menu,),
           const SizedBox(height: 5),
           OptionButton.normal(
-            text: '2 Players',
+            text: AppLocalizations.of(context)!.modeTwoPlayers,
             onPressed: ()
             {
               ref.read(gameControllerProvider.notifier).resetGame();
@@ -34,18 +30,22 @@ class MenuScreen extends ConsumerWidget {
             },
           ),
           OptionButton.normal(
-            text: 'Rules',
+            text: AppLocalizations.of(context)!.principle,
             onPressed: (){
               ref.read(screenProvider.notifier).goToRules();
             },
           ),
-          const OptionButton.normal(
-            text: 'Learn to Play',
-            onPressed: doNothing,
+          OptionButton.normal(
+            text: AppLocalizations.of(context)!.variations,
+            onPressed: (){
+              ref.read(screenProvider.notifier).goToGameSettings();
+            },
           ),
-          const OptionButton.normal(
-            text: 'Language',
-            onPressed: doNothing,
+          OptionButton.normal(
+            text: AppLocalizations.of(context)!.language,
+            onPressed: (){
+              ref.read(screenProvider.notifier).goToLanguage();   
+            },
           ),
         ],
       ),
