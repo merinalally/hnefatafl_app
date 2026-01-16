@@ -1,6 +1,7 @@
 {
   "@@locale": "en",
   "start": "Start",
+  "@start": {},
   "menu": "Menu",
   "rules": "Rules",
   "restart": "Restart",
@@ -13,7 +14,15 @@
   "english": "English",
   "french": "French",
   "japanese": "Japanese",
-  "settings": "Settings" 
+  "settings": "Settings",
+  "system": "System",
+  "@system": {},
+  "light": "Light",
+  "@light": {},
+  "dark": "Dark",
+  "@dark": {},
+  "theme": "Theme",
+  "@theme": {}
 }
 
 

@@ -14,5 +14,13 @@
   "english": "Anglais",
   "french": "Français",
   "japanese": "Japonais",
-  "settings": "Paramètres"
+  "settings": "Paramètres",
+  "system": "Système",
+  "@system": {},
+  "light": "Clair",
+  "@light": {},
+  "dark": "Sombre",
+  "@dark": {},
+  "theme": "Thème",
+  "@theme": {}
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tafl_app/l10n/app_localizations.dart';
 import 'package:tafl_app/widget/core/button/option_button.dart';
+import 'package:tafl_app/widget/core/screen_widget.dart';
 import 'package:tafl_app/widget/core/title/title_app_widget.dart';
 
 //TODO pour le menu, pop le drawer avant de naviguer ?
@@ -70,12 +71,43 @@ class GameDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Drawer(
+      child: ScreenWidget.forest(
+        content: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            spacing: 3,
+            children: [
+              TitleAppWidget(),
+              const SizedBox(
+                height: 5,
+              ),
+              ...options.entries.map((entry) {
+                final option = entry.key;
+                final action = entry.value;
+
+                return OptionButton.normal(
+                    text: option.label(context),
+                    onPressed: () {
+                      action?.call();
+                      if (option.popAfter) Navigator.of(context).pop();
+                    },
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+
+
+    return Drawer(
       child: Stack(
         fit: StackFit.expand,
         children: [
           // Background image
           Image.asset(
-            'assets/images/game.png',
+            'assets/images/forest.png',
             fit: BoxFit.cover,
           ),
 
