@@ -19,7 +19,7 @@ class LanguageArrowWidget extends StatelessWidget {
     return IconButton(
       onPressed: onPressed,
       icon: Image.asset('assets/images/arrow_${direction.name}.png',
-        height: 50,
+        height: 45,
       ),
     );
   }

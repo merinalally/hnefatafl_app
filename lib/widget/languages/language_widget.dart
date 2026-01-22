@@ -16,11 +16,11 @@ class LanguageWidget extends StatelessWidget {
       children: [
         Image.asset( 
           'assets/images/${language.languageCode}_flag.png',
-          width: 150,
+          fit: BoxFit.contain,
         ),
         Image.asset( 
           'assets/images/cask.png',
-          width: 150,
+          fit: BoxFit.contain,
         ),
       ],
     );

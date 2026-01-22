@@ -98,54 +98,7 @@ class GameDrawer extends StatelessWidget {
           ),
         ),
       ),
-    );
-
-
-    return Drawer(
-      child: Stack(
-        fit: StackFit.expand,
-        children: [
-          // Background image
-          Image.asset(
-            'assets/images/forest.png',
-            fit: BoxFit.cover,
-          ),
-
-          // Optional overlay (pour lisibilité)
-          Container(
-            color: Colors.black.withValues(alpha: 0.4),
-          ),
-
-          // Content
-          SafeArea(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              spacing: 3,
-              children: [
-                TitleAppWidget(),
-                const SizedBox(
-                  height: 5,
-                ),
-                ...options.entries.map((entry) {
-                  final option = entry.key;
-                  final action = entry.value;
-
-                  return OptionButton.normal(
-                      text: option.label(context),
-                      onPressed: () {
-                        action?.call();
-                        if (option.popAfter) Navigator.of(context).pop();
-                      },
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
-    );
-         
+    );         
   }
 }
 

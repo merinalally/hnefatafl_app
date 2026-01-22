@@ -34,12 +34,11 @@ class LanguageSelectorWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.black54,
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [ 
-          Row(
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [ 
+        Expanded(
+          child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               LanguageArrowWidget(
@@ -55,14 +54,14 @@ class LanguageSelectorWidget extends StatelessWidget {
               ),
             ],
           ),
-          OptionButton.normal(
-            text: currentLocale.languageCode.toUpperCase(), 
-            onPressed: (){},
-          ),
-
-          const SizedBox(height: 10),  
-        ],
-      ),
+        ),
+        OptionButton.small(
+          text: currentLocale.languageCode.toUpperCase(), 
+          onPressed: (){},
+        ),
+    
+        const SizedBox(height: 10),  
+      ],
     );
   }
 }
